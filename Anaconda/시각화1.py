@@ -118,10 +118,29 @@ get_ipython().system('apt-get update -qq')
 get_ipython().system('apt-ger install fonts-nanum* -qq')
 
 
-# In[ ]:
+# In[71]:
 
 
+weekday_size = 5
+weekday_sum = 0
+weekday_avg = 0
 
+for i in range(0, weekday_size):
+    weekday_sum += a[i]
+    
+weekday_avg = weekday_sum/weekday_size
+
+print("Weekday Data=",a[0:5])
+print("Weekday Sum:",weekday_sum)
+print("Weekday Average:",weekday_avg)
+
+plt.title("Weekday floating population data",fontsize=16)
+plt.xlabel("Day of the week",fontsize=12)
+plt.ylabel("Floating population",fontsize=12)
+
+plt.plot(x_data,a)
+plt.scatter(x_data[0:weekday_size],a[0:weekday_size], c='red',edgecolor='none',s=50)
+plt.show()
 
 
 # In[ ]:
