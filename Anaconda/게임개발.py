@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[68]:
+# In[69]:
 
 
 # 게임 개발
@@ -71,10 +71,59 @@ while True:
     
 
 
-# In[ ]:
+# In[74]:
 
 
+# 예시 답안
+n,m = map(int, input().split())
 
+d = [[0]*m for _ in range(n)]
+x,y,direction = map(int,input().split())
+d[x][y] = 1 #현재 좌표 방문 처리
+
+array = []
+for i in range(n):
+    array.append(list(map(int, input().split())))
+    
+dx = [-1,0,1,0] # 북,동,남,서
+dy = [0,1,0,-1]
+
+def turn_left(): # 북->서->남->동->북
+    global direction
+    direction -= 1
+    if direction == -1:
+        direction = 3 # 0->3->2->1
+
+# 시뮬레이션 시작
+count = 1
+turn_time = 0
+while True:
+    turn_left()
+    nx = x + dx[direction]
+    ny = y + dy[direction]
+    
+    if d[nx][ny] == 0 and array[nx][ny] == 0:
+        d[nx][ny] = 1
+#         print(d)
+        x = nx
+        y = ny
+        count += 1
+        turn_time = 0 # 방향 도는 거 초기화
+        continue
+    else:
+        turn_time += 1
+        
+    if turn_time == 4:
+        nx = x - dx[direction]
+        ny = y - dy[direction]
+        if array[nx][ny] == 0:
+            x=nx
+            y=ny
+        else: 
+            break
+        turn_time = 0
+        
+print(count)
 
 
 # In[8]:
