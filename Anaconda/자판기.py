@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[11]:
+# In[12]:
 
 
 # 자판기
@@ -25,7 +25,7 @@ price = {1:1000,2:1000,3:800,4:500,5:800,6:2000,7:1500,8:1500}
 
 while True:
     try:
-        select = int(input("구입할 음료수를 선택해주세요. (0:구입종료)>>>"))
+        select = int(input("구입할 음료수를 선택해주세요. (0:구입종료)>>> "))
     except:
         print("숫자로 입력해주세요!")
         continue
@@ -53,7 +53,7 @@ while True:
                 continue
         if yn == 'Y' or yn == 'y': continue
         elif yn == 'N' or yn == 'n': 
-            print("%d원을 환불합니다."%(money))
+            print("%d원을 반환합니다."%(money))
             break
             
 
